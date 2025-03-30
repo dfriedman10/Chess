@@ -1,7 +1,7 @@
 
 public class DecisionMaker {
 	
-	static final int MAXDEPTH = 3;
+	static final int MAXDEPTH = 4;
 
 	public static int[] bestMove(ChessBoard board, Team aiTeam) {
 		

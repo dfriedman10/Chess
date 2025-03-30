@@ -1,5 +1,7 @@
 import javax.swing.JFrame;
 
+// program that gets the chess game going
+
 public class ChessRunner{
 	public static final int WIDTH = 750, HEIGHT = 750;	
 

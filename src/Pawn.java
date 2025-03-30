@@ -6,6 +6,11 @@ public class Pawn extends Piece{
 		super(team, 100);
 	}
 	
+	public Pawn(Team team, boolean moved) {
+		super(team, 100);
+		this.moved = moved;
+	}
+	
 	boolean moved = false;
 
 	@Override
@@ -39,7 +44,7 @@ public class Pawn extends Piece{
 
 	@Override
 	public Piece copy() {
-		return new Pawn(this.team);
+		return new Pawn(this.team, moved);
 	}
 
 }

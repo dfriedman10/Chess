@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+// draws a chess board and handles user input 
+
 @SuppressWarnings("serial")
 public class ChessGraphics extends JPanel {
 	

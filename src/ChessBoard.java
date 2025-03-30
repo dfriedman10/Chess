@@ -1,12 +1,16 @@
 import java.lang.reflect.InvocationTargetException;
 
+
+// represents a chess board state and its functionalities 
+
 public class ChessBoard {
 	
-	final int MAXDEPTH = 3;
-
 	Piece[][] board = new Piece[8][8];
-	Team turn = Team.WHITE;
 	
+	Team turn = Team.WHITE;		// tracks the current turn
+	
+	
+	// generates a copy of a given chess board
 	public ChessBoard(ChessBoard orig) {
 		turn = orig.turn;
 		for (int i = 0; i < 8; i ++) { 
@@ -17,6 +21,7 @@ public class ChessBoard {
 		}
 	}
 	
+	// generates a starting chess board
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public ChessBoard() {
 		Class[] col1 = {Rook.class,Knight.class,Bishop.class, King.class, Queen.class,Bishop.class,Knight.class,Rook.class},
@@ -66,6 +71,7 @@ public class ChessBoard {
 	}
 	
 
+	// displays the board in text format for testing
 	public String toString() {
 		String output = "";
 		for (int i = 0; i < 8; i++) {
@@ -82,6 +88,7 @@ public class ChessBoard {
 		return output;
 	}
 	
+	// moves a piece at (i,j) to (newI, newJ) and returns if this results in a win
 	public Team move(int i, int j, int newI, int newJ) {
 		Team win = null;
 		if (getPiece(i,j) != null) {
@@ -101,6 +108,7 @@ public class ChessBoard {
 		return win;
 	}
 	
+	// runs the AI decision maker 
 	public int[] moveAI() {
 		
 		int[] move = DecisionMaker.bestMove(this, turn);
@@ -115,6 +123,7 @@ public class ChessBoard {
 		return new ChessBoard(this);
 	}
 	
+	// determines if this board contains a king in check
 	public boolean check() {
 		for (int i = 0; i< 8; i++) {
 			for (int j = 0; j < 8; j++) {
